@@ -40,19 +40,19 @@ step: 5) add the DRIVER_PATH = "/usr/local/bin/chromedriver", change this path w
 
 -Location of path: this path place at the datascrapper.py module available in the apk folder, and then job_scrapper in this function's try block's starting you will find the DRIVER_PATH, just change it's value with your path.
 
-step:5) now after all this process you need to set up the .env file in the same folder where we have opened the termial: so you will find the folder name in the vs code as a  "JobScrapping-main", preciesly create one .env file in the same directory.
+step:6) now after all this process you need to set up the .env file in the same folder where we have opened the termial: so you will find the folder name in the vs code as a  "JobScrapping-main", preciesly create one .env file in the same directory.
 
 - to create .env just click on explorer pane of vs code, then find the name as"JobScrapping-main" in this tab you will have -- minus type checkbox to set all directory, and sub directory in one manner, now click on the empty at the bottom that is available in explorer pane. now just go in the JobScrappin-main, select first option +new file, and name it as .env
 
   - Note:- still if your .env goes into any other subdirectory of the project then drag and drop it in the main directory manually.
 
-step:6) give credentials in this file,
+step:7) give credentials in this file,
 .env file looks like this
 - USERNAME=examplemail@21.com
 - PWORD=exapmlepassword
  - Note:- change exaples with the actual credentials to login into the linked in.
 
-step: 7) now, finally press this command in terminal
+step: 8) now, finally press this command in terminal
 - "python manage.py runserver 9000"
 	- Note:- you can run this server on any port you want, just change in the url accordingly.
 
