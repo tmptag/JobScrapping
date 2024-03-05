@@ -1,47 +1,57 @@
-# JobScrapping
-2packages are used for job done (selenium, beautifulshop)
+### jobscrapping
 
-==============================================================================
-Job Scrapping: this is based on python data scrapping
-            gitignore: env, and .env(for credential purpose.)
-==============================================================================
-Flow: 1) firstly, make the Request(POST) on this api,
-        "http://127.0.0.1:9000/job_scrapping/get_jd/"
-        with the "job_post's url" in Json data.
-        Json Data-packet: {
-                            "job_url": "https://www.linkedin.com/jobs/view/3819954068/"
-                                }
+this is the django-based python project for scrapping, witht the help of selenium and beautifulshop.
 
-      2) the api have end point of get_jd, so via routing from project(jobscrapping) to apk(datascrappingapk)'s 
-        view function,
-    
-      3) in this view function we will fetch the data from the req and then we will varify it with the
-         serializers.py, if validated than okay or else we will raise exception by raise_exception=True
 
-      4) we have made the custom serializer where we have added validated functionality and regex matching with the url
-         ex:  def validate(self, data):
-                job_url = data["job_url"]
-                linkedin_jobs_regex = (
-                    r"^(https?:[\\/]{0,2}|https?://)?(www\.)?linkedin\.com/jobs/view/\d+/$"
-                )
+### Table of Contents
 
-                # Adding my custom logic here...
-                if (isinstance(job_url, str)) and (re.match(linkedin_jobs_regex, job_url)):
-                    print("url is validated..")
-        
-      5) so if url is validated then we will fatch the data, from the another module that is made mannually named 
-         "datascrapper.py" (currently it is function-based), this module have functions one of them will be called from the views.py, and in return it will get the output result.
+- [Project Name](#project-name)
+- [Introduction](#introduction)
+- [Requirements](#Configuration)
+- [Configuration](#Configuration)
 
-      6) data scrapping flow
-        -> login headless mode as of now,
-        -> for username and password, i have created one env variables
-        -> from that env i will load my credentials to the os to the script,
-        -> now after login we will search for the url(url is already varified from the ser.), 
-        -> now we will get on the job page where we wait for certain seconds and scroll down to the bottom in order to 
-           load the whole html containt
-        -> now we have made some functions in datascrapping.py module(same module), from where we will gonna have the
-           job_related overview or skill related etc etc....
-        -> at the end we will have the final output in dict that will be returned to views.py to user who have hitted the api.
+## Introduction
 
-        
-     
+aim is to fetch the job/skills/position related data of given job-post.
+
+
+## Requirements
+
+- you will required python3 on your local machine, to set up the enviroment for the project.
+- then, you will have other requirements(related to the packages) are available, in this repo as a file named "requirements.txt".
+- you should have installed one webdriver for doing the scrapping job(as we are using selenium for the login purposes, and i am using chrom). command for mac: "brew install --cask chromedriver"
+- next step is you as you run this brew install command, it will install the chrom driver in your local machine, and return the installed path in your terminal as something like this
+Linking Binary 'chromedriver' to '/usr/local/bin/chromedriver', copy this path this path have further usage in set-up.
+
+## Configuration
+- step:1)download the project's repo as a zip.
+
+- step:2)unzip the folder, and place it properly where you want to setup the project.
+
+- step:3) now you will have folder like jobScrapping-main, for mac right click on this folder and select "new terminal at folder" .
+
+- step:4) type followings.
+"python3 -m venv env" (for creating env)
+"source env/bin/activate" (for activing env)
+"pip install -r requirements.txt" (for installing requirements)
+"code ." (open the code in terminal)
+
+step:5) now after all this process you need to set up the .env file in the same folder where we have opened the termial: so you will find the folder name in the vs code as a  "JobScrapping-main", preciesly create one .env file in the same directory.
+
+	to create .env just click on explorer pane of vs code, then find the name as"JobScrapping-main" in this tab you will have -- minus type checkbox to set all directory, and sub directory in one manner, now click on the empty at the bottom that is available in explorer pane. now just go in the JobScrappin-main, select first option +new file, and name it as .env
+	Note:- still if your .env goes into any other subdirectory of the project then drag and drop it in the main directory manually.
+
+step:6) give credentials in this file,
+.env file looks like this
+USERNAME=examplemail@21.com
+PWORD=exapmlepassword
+	Note:- change exaples with the actual credentials to login into the linked in.
+
+step: 7) now, finally press this command in terminal
+"python manage.py runserver 9000"
+	Note:- you can run this server on any port you want, just change in the url accordingly.
+
+url:- "http://127.0.0.1:9000/job_scrapping/get_jd/"
+req: {
+    "job_url": "https://www.linkedin.com/jobs/view/3819954068/"
+}

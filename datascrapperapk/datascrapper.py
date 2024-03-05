@@ -179,6 +179,14 @@ def job_scrapper(url_for_scrape):
 
     try:
 
+        if (os.environ.get("USERNAME") is None) or (os.environ.get("PWORD") is None):
+            print("11", os.environ.get("USERNAME"))
+            print("22", os.environ.get("PWORD"))
+            print(
+                "Kindly set the enviroment valiable for credential, variable formats are USERNAME, PASSWORD"
+            )
+            raise Exception
+
         options = Options()
 
         options.headless = True  # False, if uh wanna run in the ui mode.

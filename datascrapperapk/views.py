@@ -22,7 +22,7 @@ def job_description(req):
             return Response(
                 {
                     "error": True,
-                    "msg": "no job exists or captcha validation",
+                    "msg": "bad log-in credentials / no job exists / captcha validation",
                 },
                 status=status.HTTP_400_BAD_REQUEST,
             )
