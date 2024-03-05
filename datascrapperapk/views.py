@@ -17,10 +17,6 @@ def job_description(req):
         ser.is_valid(raise_exception=True)
 
         final_dict = job_scrapper(data["job_url"])
-        # final_dict = _job_scrapper(data["job_url"])
-
-        print("this is the final_dict", final_dict)
-        time.sleep(10)
 
         if len(final_dict["job-title"]) <= 0:
             return Response(
