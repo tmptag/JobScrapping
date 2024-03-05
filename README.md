@@ -24,17 +24,21 @@ aim is to fetch the job/skills/position related data of given job-post.
 Linking Binary 'chromedriver' to '/usr/local/bin/chromedriver', copy this path this path have further usage in set-up.
 
 ## Configuration
-- step:1)download the project's repo as a zip.
+step:1)download the project's repo as a zip.
 
-- step:2)unzip the folder, and place it properly where you want to setup the project.
+step:2)unzip the folder, and place it properly where you want to setup the project.
 
-- step:3) now you will have folder like jobScrapping-main, for mac right click on this folder and select "new terminal at folder" .
+step:3) now you will have folder like jobScrapping-main, for mac right click on this folder and select "new terminal at folder" .
 
-- step:4) type followings.
+step:4) type followings.
   - "python3 -m venv env" (for creating env)
   - "source env/bin/activate" (for activing env)
   - "pip install -r requirements.txt" (for installing requirements)
   - "code ." (open the code in terminal)
+
+step: 5) add the DRIVER_PATH = "/usr/local/bin/chromedriver", change this path with the path that you got while installing driver by this command "brew install --cask chromedriver".
+
+-Location of path: this path place at the datascrapper.py module available in the apk folder, and then job_scrapper in this function's try block's starting you will find the DRIVER_PATH, just change it's value with your path.
 
 step:5) now after all this process you need to set up the .env file in the same folder where we have opened the termial: so you will find the folder name in the vs code as a  "JobScrapping-main", preciesly create one .env file in the same directory.
 
