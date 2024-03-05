@@ -31,27 +31,26 @@ Linking Binary 'chromedriver' to '/usr/local/bin/chromedriver', copy this path t
 - step:3) now you will have folder like jobScrapping-main, for mac right click on this folder and select "new terminal at folder" .
 
 - step:4) type followings.
-"python3 -m venv env" (for creating env)
-"source env/bin/activate" (for activing env)
-"pip install -r requirements.txt" (for installing requirements)
-"code ." (open the code in terminal)
+  - "python3 -m venv env" (for creating env)
+  - "source env/bin/activate" (for activing env)
+  - "pip install -r requirements.txt" (for installing requirements)
+  - "code ." (open the code in terminal)
 
 step:5) now after all this process you need to set up the .env file in the same folder where we have opened the termial: so you will find the folder name in the vs code as a  "JobScrapping-main", preciesly create one .env file in the same directory.
 
-	to create .env just click on explorer pane of vs code, then find the name as"JobScrapping-main" in this tab you will have -- minus type checkbox to set all directory, and sub directory in one manner, now click on the empty at the bottom that is available in explorer pane. now just go in the JobScrappin-main, select first option +new file, and name it as .env
-	Note:- still if your .env goes into any other subdirectory of the project then drag and drop it in the main directory manually.
+- to create .env just click on explorer pane of vs code, then find the name as"JobScrapping-main" in this tab you will have -- minus type checkbox to set all directory, and sub directory in one manner, now click on the empty at the bottom that is available in explorer pane. now just go in the JobScrappin-main, select first option +new file, and name it as .env
+
+  - Note:- still if your .env goes into any other subdirectory of the project then drag and drop it in the main directory manually.
 
 step:6) give credentials in this file,
 .env file looks like this
-USERNAME=examplemail@21.com
-PWORD=exapmlepassword
-	Note:- change exaples with the actual credentials to login into the linked in.
+- USERNAME=examplemail@21.com
+- PWORD=exapmlepassword
+ - Note:- change exaples with the actual credentials to login into the linked in.
 
 step: 7) now, finally press this command in terminal
-"python manage.py runserver 9000"
-	Note:- you can run this server on any port you want, just change in the url accordingly.
+- "python manage.py runserver 9000"
+	- Note:- you can run this server on any port you want, just change in the url accordingly.
 
-url:- "http://127.0.0.1:9000/job_scrapping/get_jd/"
-req: {
-    "job_url": "https://www.linkedin.com/jobs/view/3819954068/"
-}
+- url:- "http://127.0.0.1:9000/job_scrapping/get_jd/"
+- req: {"job_url": "https://www.linkedin.com/jobs/view/3819954068/"}
